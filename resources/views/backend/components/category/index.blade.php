@@ -37,16 +37,10 @@
                                     <td>{{$category->name}}</td>
                                     <td class="parent">
                                         <a href="{{ route('category.edit', $category->id) }}">
-                                            <button type="button" class="btn btn-success btn-icon-text">
-                                                Edit
-                                                <i class="ti-file btn-icon-append"></i>                          
-                                            </button>
+                                            <button type="button" class="btn btn-social-icon btn-success"><i class="ti-pencil-alt"></i></button>
                                         </a>
                                         <a href="" data-url="{{ route('category.destroy', $category->id) }}" class="active_delete">
-                                            <button type="button" class="btn btn-danger btn-icon-text">
-                                                Delete
-                                                <i class="mdi mdi-delete"></i>                          
-                                            </button>
+                                            <button type="button" class="btn btn-social-icon btn-danger"><i class="ti-trash"></i></button>
                                         </a>
                                     </td>
                                 </tr>

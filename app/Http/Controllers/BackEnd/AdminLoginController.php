@@ -16,7 +16,9 @@ class AdminLoginController extends Controller
     }
 
     public function admins(Request $request) {
-        $request->session()->flush();
+        Auth::guard('admin')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return view('backend.auth.login');
     }
     

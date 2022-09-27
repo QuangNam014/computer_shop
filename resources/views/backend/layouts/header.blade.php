@@ -9,9 +9,9 @@
         </button>
 
         
-        {{-- {{dd(Route::currentRouteName())}} --}}
+        
 
-        @if ( Route::currentRouteName() == "product.index" )
+        {{-- @if ( Route::currentRouteName() == "product.index" )
           <form action="{{ route('product.search') }}" method="post">
             @csrf
             <ul class="navbar-nav mr-lg-2">
@@ -30,7 +30,70 @@
                 </li>
               </ul>
           </form>    
-        @endif
+        @endif --}}
+        @switch(Route::currentRouteName())
+            @case("product.index")
+                <form action="{{ route('product.search') }}" method="post">
+                  @csrf
+                  <ul class="navbar-nav mr-lg-2">
+                      <li class="nav-item nav-search d-none d-lg-block">
+                        <div class="input-group" style="width: 500px;">
+                            <input type="text" class="form-control" name="search" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+      
+                            <button type="submit" class="btn btn-primary btn-rounded btn-icon">
+                              <div class="input-group-prepend hover-cursor" id="navbar-search-icon" style="justify-content: center; ">
+                                  <span class="input-group-text" id="search">
+                                      <i class="icon-search" style="color: #fff; font-size: 1.1rem;"></i>
+                                  </span>
+                              </div>
+                            </button>
+                        </div>
+                      </li>
+                    </ul>
+                </form> 
+                @break
+            @case("user.index")
+                <form action="{{ route('user.search') }}" method="post">
+                  @csrf
+                  <ul class="navbar-nav mr-lg-2">
+                      <li class="nav-item nav-search d-none d-lg-block">
+                        <div class="input-group" style="width: 500px;">
+                            <input type="text" class="form-control" name="search" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+      
+                            <button type="submit" class="btn btn-primary btn-rounded btn-icon">
+                              <div class="input-group-prepend hover-cursor" id="navbar-search-icon" style="justify-content: center; ">
+                                  <span class="input-group-text" id="search">
+                                      <i class="icon-search" style="color: #fff; font-size: 1.1rem;"></i>
+                                  </span>
+                              </div>
+                            </button>
+                        </div>
+                      </li>
+                    </ul>
+                </form> 
+                @break
+            @case("order.index")
+            <form action="{{ route('order.search') }}" method="post">
+              @csrf
+              <ul class="navbar-nav mr-lg-2">
+                  <li class="nav-item nav-search d-none d-lg-block">
+                    <div class="input-group" style="width: 500px;">
+                        <input type="text" class="form-control" name="search" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+  
+                        <button type="submit" class="btn btn-primary btn-rounded btn-icon">
+                          <div class="input-group-prepend hover-cursor" id="navbar-search-icon" style="justify-content: center; ">
+                              <span class="input-group-text" id="search">
+                                  <i class="icon-search" style="color: #fff; font-size: 1.1rem;"></i>
+                              </span>
+                          </div>
+                        </button>
+                    </div>
+                  </li>
+                </ul>
+            </form> 
+            @break
+            @default @break
+        @endswitch
         
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item dropdown">

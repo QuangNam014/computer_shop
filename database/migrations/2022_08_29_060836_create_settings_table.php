@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('config_key')->nullable();
             $table->text('config_value')->nullable();
+            $table->text('type')->nullable();
             $table->boolean('active')->default(1);
             $table->softDeletes();
             $table->timestamps();

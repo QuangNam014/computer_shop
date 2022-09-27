@@ -54,22 +54,14 @@
                                         <td>{{optional($product->category)->name}}</td>
                                         <td class="parent">
                                             <a href="{{ route('specId.index'). '/?product_id='.$product->id.' &&type_id='.$product->type_id }}">
-                                                <button type="button" class="btn btn-success btn-icon-text">
-                                                    Type
-                                                    <i class="ti-file btn-icon-append"></i>                          
-                                                </button>
+                                                <button type="button" class="btn btn-social-icon btn-info"><i class="ti-info"></i></button>
                                             </a>
                                             <a href="{{ route('product.edit', $product->id) }}">
-                                                <button type="button" class="btn btn-success btn-icon-text">
-                                                    Edit
-                                                    <i class="ti-file btn-icon-append"></i>                          
-                                                </button>
+                                                <button type="button" class="btn btn-social-icon btn-success"><i class="ti-pencil-alt"></i></button>
+
                                             </a>
                                             <a href="" data-url="{{ route('product.destroy', $product->id) }}" class="active_delete">
-                                                <button type="button" class="btn btn-danger btn-icon-text">
-                                                    Delete
-                                                    <i class="mdi mdi-delete"></i>                          
-                                                </button>
+                                                <button type="button" class="btn btn-social-icon btn-danger"><i class="ti-trash"></i></button>
                                             </a>
                                         </td>
                                     </tr>

@@ -39,4 +39,24 @@ class Product extends Model
             'normal_price' => $this->normal_price,
         ];
     }
+
+    public function specLaptop() {
+        return $this->hasOne(Specification_type_laptop::class, 'product_id');
+    }
+
+    public function specPC() {
+        return $this->hasOne(Specification_type_pc::class, 'product_id');
+    }
+
+    public function specMonitor() {
+        return $this->hasOne(Specification_type_monitor::class, 'product_id');
+    }
+
+    public function specKeyBoard() {
+        return $this->hasOne(Specification_type_keyboard::class, 'product_id');
+    }
+
+    public function specMouse() {
+        return $this->hasOne(Specification_type_mouse::class, 'product_id');
+    }
 }

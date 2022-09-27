@@ -85,5 +85,19 @@
             </div>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('user.index') }}">
+                <i class="icon-layout menu-icon"></i>
+                <span class="menu-title">User</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('order.index') }}">
+                <i class="icon-layout menu-icon"></i>
+                <span class="menu-title">Order</span>
+            </a>
+        </li>
+
     </ul>
 </nav>

@@ -66,9 +66,9 @@
                                         </tr>
     
                                         <tr style="font-size: 16px; color: #989898;" class="form-group">
-                                            <th class="col-sm-3"><label>Phone</label></th>
+                                            <th class="col-sm-3"><label>Phone(*)</label></th>
                                             <td class="col-sm-9">
-                                                <input type="text" name="phone" class="form-control " value="{{$user->phone}}" placeholder="Phone">
+                                                <input type="text" name="phone" class="form-control " required value="{{$user->phone}}" placeholder="Phone">
                                             </td>
                                         </tr>
     
@@ -80,9 +80,9 @@
                                         </tr>
     
                                         <tr style="font-size: 16px; color: #989898;" class="form-group">
-                                            <th class="col-sm-3"><label>Address</label></th>
+                                            <th class="col-sm-3"><label>Address(*)</label></th>
                                             <td class="col-sm-9">
-                                                <input type="text" name="address" class="form-control " value="{{$user->address_1}}" placeholder="Address">
+                                                <input type="text" name="address" class="form-control " required value="{{$user->address_1}}" placeholder="Address">
                                             </td>
                                         </tr>
                                     </table>

@@ -17,6 +17,20 @@
             <div class="row card">
                 <div class="card-body">
                     <h4 class="card-title">Show Order</h4>
+
+                    <form action="{{ route('customer.infoCartSearch') }}" method="post" style="display: flex; justify-content: flex-end;">
+                        @csrf
+                        <div class="justify-content-end d-flex margin_right">
+                            <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+                                <input type="date" name="create_date" id="" class="edit_input_date" style=" font-size: 17px; border-radius: 10px; width: 100%; height: 38px; padding: 5px 20px;">   
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary btn-rounded btn-fw" style="cursor: pointer;">
+                                <i class="fa fa-search" style="color: #fff; font-size: 1.1rem;" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </form>
                 
                     <div class="table-responsive pt-3">
                         <table class="table table-hover table-striped">

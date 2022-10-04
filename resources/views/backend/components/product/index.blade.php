@@ -92,7 +92,6 @@
                                     <td>{{$product->name}}</td>
                                     <td class="price-format">{{$product->normal_price}}</td>
                                     <td class="price-format">{{$product->promotion_price}}</td>
-                                    <td>{{$product->description}}</td>
                                     <td>
                                         <img id="image_index_product" src="{{ asset($product->feature_image_path) }}" alt="{{$product->feature_image_name}}">
                                     </td>
@@ -108,6 +107,8 @@
                                             <button type="button" class="btn btn-social-icon btn-danger"><i class="ti-trash"></i></button>
                                         </a>
                                     </td>
+                                    <td>{{$product->description}}</td>
+
                                 </tr>
                             @endforeach
                         </tbody>

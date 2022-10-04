@@ -78,17 +78,147 @@
                     <div class="logo_container">
                         <a href="index.html">Computer <span>Store<span></a>
                     </div>
-                    <nav class="navbar">
+
+                    
+                        {{-- <div class="input-group" style="width: 500px;">
+                            <input type="text" class="form-control" name="search" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+      
+                            <button type="submit" class="btn btn-primary btn-rounded btn-icon">
+                              <div class="input-group-prepend hover-cursor" id="navbar-search-icon" style="justify-content: center; ">
+                                  <span class="input-group-text" id="search">
+                                      <i class="icon-search" style="color: #fff; font-size: 1.1rem;"></i>
+                                  </span>
+                              </div>
+                            </button>
+                        </div> --}}
+                    
+                    <nav class="navbar col-lg-9" style="display: flex;">
                         <ul class="navbar_menu">
                             <li><a href="{{ route('customer.index') }}">home</a></li>
-                            <li><a href="{{ route('customer.product') }}">shop</a></li>
-                            <li><a href="single.html">promotion</a></li>
-                            <li><a href="#">pages</a></li>
-                            <li><a href="#">blog</a></li>
-                            <li><a href="contact.html">contact</a></li>
+                            <li><a href="{{ route('customer.product') }}">product</a></li>
+                            <li><a href="{{ route('customer.contact') }}">contact</a></li>
                         </ul>
-                        <ul class="navbar_user"> 
-                            <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+
+                        <ul class="navbar_user" style="display: flex;"> 
+                            <li class="nav-item nav-search d-none d-lg-block">
+                             
+                                @switch(Route::currentRouteName())
+                                    @case("customer.infoCart")
+                                        <form action="{{ route('customer.infoCartSearch') }}" method="post">
+                                            @csrf
+                                            <div class="input-group" style="width: 400px;">
+                                                <input type="text" class="form-control" name="search" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+                                                <button type="submit" class="btn btn-primary btn-rounded btn-icon" style="cursor: pointer">
+                                                    <div class="input-group-prepend hover-cursor" id="navbar-search-icon" style="justify-content: center; ">
+                                                        <span class="input-group-text" id="search">
+                                                            <i class="fa fa-search" style="color: #fff; font-size: 1.1rem;" aria-hidden="true"></i>
+                                                        </span>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </form> 
+                                        @break
+                                    @case("customer.product")
+                                        <form action="{{ route('customer.search') }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="type" value="0">
+                                            <div class="input-group" style="width: 400px;">
+                                                <input type="text" class="form-control" name="search" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+                                                <button type="submit" class="btn btn-primary btn-rounded btn-icon" style="cursor: pointer">
+                                                    <div class="input-group-prepend hover-cursor" id="navbar-search-icon" style="justify-content: center; ">
+                                                        <span class="input-group-text" id="search">
+                                                            <i class="fa fa-search" style="color: #fff; font-size: 1.1rem;" aria-hidden="true"></i>
+                                                        </span>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </form> 
+                                        @break
+                                    @case("customer.categoryProductLaptop")
+                                        <form action="{{ route('customer.search') }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="type" value="1">
+                                            <div class="input-group" style="width: 400px;">
+                                                <input type="text" class="form-control" name="search" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+                                                <button type="submit" class="btn btn-primary btn-rounded btn-icon" style="cursor: pointer">
+                                                    <div class="input-group-prepend hover-cursor" id="navbar-search-icon" style="justify-content: center; ">
+                                                        <span class="input-group-text" id="search">
+                                                            <i class="fa fa-search" style="color: #fff; font-size: 1.1rem;" aria-hidden="true"></i>
+                                                        </span>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </form> 
+                                        @break
+                                    @case("customer.categoryProductPC")
+                                        <form action="{{ route('customer.search') }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="type" value="2">
+                                            <div class="input-group" style="width: 400px;">
+                                                <input type="text" class="form-control" name="search" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+                                                <button type="submit" class="btn btn-primary btn-rounded btn-icon" style="cursor: pointer">
+                                                    <div class="input-group-prepend hover-cursor" id="navbar-search-icon" style="justify-content: center; ">
+                                                        <span class="input-group-text" id="search">
+                                                            <i class="fa fa-search" style="color: #fff; font-size: 1.1rem;" aria-hidden="true"></i>
+                                                        </span>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </form> 
+                                        @break
+                                    @case("customer.categoryProductMonitor")
+                                        <form action="{{ route('customer.search') }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="type" value="3">
+                                            <div class="input-group" style="width: 400px;">
+                                                <input type="text" class="form-control" name="search" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+                                                <button type="submit" class="btn btn-primary btn-rounded btn-icon" style="cursor: pointer">
+                                                    <div class="input-group-prepend hover-cursor" id="navbar-search-icon" style="justify-content: center; ">
+                                                        <span class="input-group-text" id="search">
+                                                            <i class="fa fa-search" style="color: #fff; font-size: 1.1rem;" aria-hidden="true"></i>
+                                                        </span>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </form> 
+                                        @break
+                                    @case("customer.categoryProductKeyboard")
+                                        <form action="{{ route('customer.search') }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="type" value="4">
+                                            <div class="input-group" style="width: 400px;">
+                                                <input type="text" class="form-control" name="search" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+                                                <button type="submit" class="btn btn-primary btn-rounded btn-icon" style="cursor: pointer">
+                                                    <div class="input-group-prepend hover-cursor" id="navbar-search-icon" style="justify-content: center; ">
+                                                        <span class="input-group-text" id="search">
+                                                            <i class="fa fa-search" style="color: #fff; font-size: 1.1rem;" aria-hidden="true"></i>
+                                                        </span>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </form> 
+                                        @break
+                                    @case("customer.categoryProductMouse")
+                                        <form action="{{ route('customer.search') }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="type" value="5">
+                                            <div class="input-group" style="width: 400px;">
+                                                <input type="text" class="form-control" name="search" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+                                                <button type="submit" class="btn btn-primary btn-rounded btn-icon" style="cursor: pointer">
+                                                    <div class="input-group-prepend hover-cursor" id="navbar-search-icon" style="justify-content: center; ">
+                                                        <span class="input-group-text" id="search">
+                                                            <i class="fa fa-search" style="color: #fff; font-size: 1.1rem;" aria-hidden="true"></i>
+                                                        </span>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </form> 
+                                        @break
+                                    @default @break
+                                @endswitch
+
+                            </li>
+
                             @if (auth()->check())
                                 <li><a href="{{ route('customer.infoCart', auth()->user()->id) }}"><i class="fa fa-info-circle" aria-hidden="true"></i></a></li>
                                 <li><a href="{{ route('customer.infoCustomer') }}"><i class="fa fa-user" aria-hidden="true"></i></a></li>

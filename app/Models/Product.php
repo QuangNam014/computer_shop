@@ -37,6 +37,7 @@ class Product extends Model
             'id' => $this->id,
             'name' => $this->name,
             'normal_price' => $this->normal_price,
+            'promotion_price' => $this->promotion_price,
         ];
     }
 

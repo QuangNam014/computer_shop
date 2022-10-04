@@ -13,9 +13,9 @@
 @endsection
 
 @section('content')
-     @if(session('alert'))  
-          <section class='alert alert-success'>{{session('alert')}}</section>
-    @endif  
+    @if(session('alert'))
+        <section class='alert alert-success'>{{session('alert')}}</section>
+    @endif
     <div class="content-wrapper card">
         <div class="row">
             <div class="col-12 grid-margin stretch-card">
@@ -23,7 +23,7 @@
                     <div class="card-body">
                         <form class="forms-sample" action="{{ route('admin.postSetting') }}" method="post" enctype="multipart/form-data">
                             @csrf
-                            <h4 class="card-title">Basic Infor Admin</h4>
+                            {{-- <h4 class="card-title">Basic Infor Admin</h4>
                             <div class="form-group">
                                 <label for="exampleInputName1">Name</label>
                                 <input type="text" name="name" class="form-control" value="{{ old('name')}}"  placeholder="Name">
@@ -45,7 +45,7 @@
                                         </button>
                                     </span>
                                 </div>
-                            </div>
+                            </div> --}}
                             
                             <h4 class="card-title">Change Password</h4>
                             <div class="form-group">

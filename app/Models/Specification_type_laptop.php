@@ -9,5 +9,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Specification_type_laptop extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['name','product_id'];
+    protected $guarded = [];
 }

@@ -35,7 +35,7 @@ class AdminProductController extends Controller
         $max_price_range = $max_price + 10000000;
         $min_price = Product::min('normal_price');
         $min_price_range = $min_price - $min_price;
-        $products = Product::where('active', 1)->latest()->paginate(10);
+        $products = Product::where('active', 1)->latest()->paginate(20);
         return view('backend.components.product.index', compact('products','max_price','min_price','max_price_range','min_price_range'));
     }
 
@@ -60,6 +60,8 @@ class AdminProductController extends Controller
     public function store(AdminProductRequest $request)
     {
         // dd($request->type);
+        // dd($request->type_id);
+
         try {
             DB::beginTransaction();
             $normal_price = filter_var($request->normal_price, FILTER_SANITIZE_NUMBER_INT);
@@ -74,9 +76,32 @@ class AdminProductController extends Controller
                 'type_id' =>$request->type_id
             ];
 
+            // Choose folder
+            $folder = "";
+            switch ($request->type_id) {
+                case 1:
+                    $folder = 'images/products/laptop';
+                    break;
+                case 2:
+                    $folder = 'images/products/pc';
+                    break;
+                case 3:
+                    $folder = 'images/products/monitor';
+                    break;
+                case 4:
+                    $folder = 'images/products/keyboard';
+                    break;
+                case 5:
+                    $folder = 'images/products/mouse';
+                    break;
+                default: break;
+            }
+            // dd($folder);
+
+
             // xử lý ảnh feature
             
-            $dataUpLoadFeatureImage = $this->TraitUpLoadFile($request, 'feature_image_path', 'images/products');
+            $dataUpLoadFeatureImage = $this->TraitUpLoadFile($request, 'feature_image_path', $folder);
             if(!empty($dataUpLoadFeatureImage)) {
                 $dataProductCreate['feature_image_name'] = $dataUpLoadFeatureImage['image_name'];
                 $dataProductCreate['feature_image_path'] = $dataUpLoadFeatureImage['image_path'];
@@ -86,7 +111,7 @@ class AdminProductController extends Controller
             // thêm hình ảnh vào ProductImage
             if(!empty($request->image_path)) {
                 foreach ($request->image_path as $imageItem) {
-                    $dataProductImageDetail = $this->TraitMultiUpLoadFile($imageItem, 'images/productImages');
+                    $dataProductImageDetail = $this->TraitMultiUpLoadFile($imageItem, $folder);
                     $product->images()->create([
                         'image_name' => $dataProductImageDetail['image_name'],
                         'image_path' => $dataProductImageDetail['image_path'],

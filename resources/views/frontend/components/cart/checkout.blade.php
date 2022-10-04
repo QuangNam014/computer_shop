@@ -98,7 +98,7 @@
                                 <div class="col">
                                     <div class="form-group"> <label class="text-muted">Email</label>
                                         <div class="d-flex jusify-content-start align-items-center rounded p-2" style="cursor: no-drop;"> 
-                                            <input type="email" name="email" value="{{$user->email}}" disabled style="cursor: no-drop;">
+                                            <input type="email" name="email" value="{{$user->email}}" readonly style="cursor: no-drop;">
                                         </div>
                                     </div>
                                 </div>

@@ -25,20 +25,7 @@
     <script src="{{ asset('assetFE/assets/plugins/jquery-ui-1.12.1.custom/jquery-ui.js') }}"></script>
     <script src="{{ asset('assetFE/assets/js/single_custom.js') }}"></script>
     <script>
-      // function deleteToCart() {
-      //   console.log($(this).data('url'));
-      //   // $.ajax({
-      //   //   type: "get",
-      //   //   url: $(this).data('url'),
-      //   // }).done(function(data) {
-      //   //   renderCart(data)
-      //   // });
-      // }
-
-      // $(function() {
-      //   $('#detele_cart').on('click', deleteToCart);
-      //   // $('#update_cart').on('change', updateToCart);
-      // });
+      
       $("#list_cart").on("click", "#detele_cart", function() {
         console.log($(this).data('url'));
         $.ajax({
@@ -131,98 +118,6 @@
             </ul>
         </div>
     </div>
-
-    {{-- <div class="container single_product_container">
-        <div class="row">
-            <div class="col">
-
-                <!-- Breadcrumbs -->
-
-                <div class="breadcrumbs d-flex flex-row align-items-center">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="categories.html"><i class="fa fa-angle-right" aria-hidden="true"></i>PC</a></li>
-                        <li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>TITAN Plus i3090</a></li>
-                    </ul>
-                </div>
-
-                
-
-            </div>
-        </div>
-    </div> --}}
-
-
-    <!-- Tabs -->
-    {{-- <div class="container px-3 my-5 clearfix" style="margin-top: 12% !important;">
-        <!-- Shopping cart table -->
-        <div class="card">
-            <div class="card-header">
-                <h2 style="font-family: Arial, Helvetica, sans-serif;">Shopping Cart</h2>
-            </div>
-            @if (!empty(session()->get('cart')))
-                <div class="cart_wrapper url_delete_cart" data-url="{{ route('customer.deleteCart') }}">
-                    <div class="card-body url_update_cart" data-url="{{ route('customer.updateCart') }}">
-                        <div class="table-responsive">
-                            <table class="table table-bordered m-0">
-                                <thead>
-                                    <tr>
-                                    <!-- Set columns width -->
-                                    <th class="text-center py-3 px-4" style="min-width: 400px;">Product Name &amp; Details</th>
-                                    <th class="text-right py-3 px-4" style="width: 100px;">Price</th>
-                                    <th class="text-center py-3 px-4" style="width: 120px;">Quantity</th>
-                                    <th class="text-right py-3 px-4" style="width: 100px;">Total</th>
-                                    <th class="text-center align-middle py-3 px-0" style="width: 40px;"><a href="#" class="shop-tooltip float-none text-light" title="" data-original-title="Clear cart"><i class="ino ion-md-trash"></i></a></th>
-                                    </tr>
-                                </thead>
-                                <tbody class="view_cart"></tbody>
-                            </table>
-                        </div>
-                        <!-- / Shopping cart table -->
-                    
-                        <div class="d-flex flex-wrap justify-content-between align-items-center pb-4">
-                            <div class="mt-4">
-                            <label class="text-muted font-weight-normal">Promocode</label>
-                            <input type="text" placeholder="ABC" class="form-control">
-                            </div>
-                            <div class="d-flex">
-                            <div class="text-right mt-4 mr-5">
-                                <label class="text-muted font-weight-normal m-0">Discount</label>
-                                <div class="text-large"><strong>$20</strong></div>
-                            </div>
-                            <div class="text-right mt-4">
-                                <label class="text-muted font-weight-normal m-0">Total price</label>
-                                <div class="text-large" ><strong id="total_price"></strong></div>
-                            </div>
-                            </div>
-                        </div>
-                    
-                        <div class="float-right">
-                            <button type="button" class="btn btn-lg btn-default md-btn-flat mt-2 mr-3">Back to shopping</button>
-                            <a href="{{ route('customer.checkout') }}">
-                                <button type="button" class="btn btn-lg btn-primary mt-2">Checkout</button>
-                            </a>
-                        </div>
-                    
-                    </div>
-                </div>
-            @else
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered m-0">
-                            <div style="text-align: center; height: 150px;">
-                                <p style="font-size: 25px; font-weight: 600;">Giỏ hàng hiện chưa có sản phẩm</p>
-                                <div style="font-size: 18px; font-weight: 400;">
-                                    <i class="ti-hand-point-right" ></i><a href="{{ route('customer.product') }}"> Tiếp tục mua hàng</a>
-                                </div>
-                            </div>
-                        </table>
-                    </div>
-                </div>
-            @endif
-        </div>
-    </div> --}}
-   
 
     <div class="container px-3 my-5 clearfix" style="margin-top: 12% !important;">
         <!-- Shopping cart table -->

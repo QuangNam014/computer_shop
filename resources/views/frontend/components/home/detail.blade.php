@@ -204,35 +204,12 @@
 
                     <div id="tab_1" class="tab_container active">
                         <div class="row">
-                            <div class="col-lg-5 desc_col">
+                            <div class="col-lg-12 desc_col">
                                 <div class="tab_title">
                                     <h4>Description</h4>
                                 </div>
                                 {!! $product->description!!}
-                                {{-- <div class="tab_text_block">
-                                    <h2>Front The Case</h2>
-                                    <p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut...</p>
-                                </div>
-                                <div class="tab_image">
-                                    <img src="{{ asset('assetFE/assets/images/pc1.3.webp') }}" alt="">
-                                </div>
-                                <div class="tab_text_block">
-                                    <h2>Inside The Case</h2>
-                                    <p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut...</p>
-                                </div> --}}
                             </div>
-                            {{-- <div class="col-lg-5 offset-lg-2 desc_col">
-                                <div class="tab_image">
-                                    <img src="{{ asset('assetFE/assets/images/pc1.4.webp') }}" alt="">
-                                </div>
-                                <div class="tab_text_block">
-                                    <h2>Detail The Case</h2>
-                                    <p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut...</p>
-                                </div>
-                                <div class="tab_image desc_last">
-                                    <img src="{{ asset('assetFE/assets/images/pc1.6.webp') }}" alt="">
-                                </div>
-                            </div> --}}
                         </div>
                     </div>
 
@@ -244,24 +221,34 @@
                                 <div class="tab_title additional_info_title">
                                     <h4>Additional Information</h4>
                                 </div>
-                                {{-- @switch($product->type_id)
+                                @switch($product->type_id)
                                     @case(1)
-                                        @include('frontend.components.specification.laptop', ['specLaptop' => $spec_laptop])
-                                        @break
+                                        @if (!empty($spec_laptop))
+                                            @include('frontend.components.specification.laptop', ['specLaptop' => $spec_laptop])
+                                            @break
+                                        @endif
                                     @case(2)
-                                        @include('frontend.components.specification.pc', ['specPC' => $spec_pc])
-                                        @break
-                                    @case(2)
-                                        @include('frontend.components.specification.monitor', ['specMonitor' => $spec_monitor])
-                                        @break
-                                    @case(2)
-                                        @include('frontend.components.specification.keyboard', ['specKeyBoard' => $spec_keyboard])
-                                        @break
-                                    @case(2)
-                                        @include('frontend.components.specification.mouse', ['specMouse' => $spec_mouse])
-                                        @break
+                                        @if (!empty($spec_pc))
+                                            @include('frontend.components.specification.pc', ['specPC' => $spec_pc])
+                                            @break
+                                        @endif
+                                    @case(3)
+                                        @if (!empty($spec_monitor))
+                                            @include('frontend.components.specification.monitor', ['specMonitor' => $spec_monitor])
+                                            @break
+                                        @endif
+                                    @case(4)
+                                        @if (!empty($spec_keyboard))
+                                            @include('frontend.components.specification.keyboard', ['specKeyBoard' => $spec_keyboard])
+                                            @break
+                                        @endif
+                                    @case(5)
+                                        @if (!empty($spec_mouse))
+                                            @include('frontend.components.specification.mouse', ['specMouse' => $spec_mouse])
+                                            @break
+                                        @endif
                                     @default @break
-                                @endswitch --}}
+                                @endswitch
                             </div>
                         </div>
                     </div>

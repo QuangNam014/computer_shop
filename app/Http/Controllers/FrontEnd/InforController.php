@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\User;
 use App\Trait\UpLoadImage;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -73,11 +74,15 @@ class InforController extends Controller
         return redirect()->back();
     }
 
-    // public function infoCartSearch() {
-        
-        // $order = Order::find($id)->update([
-        //     'status' => "cancel",
-        // ]);
-        // return redirect()->back();
-    // }
+    public function infoCartSearch(Request $request) {
+        if ($request->has('search')) {
+            $orders = Order::search($request->search)->get();
+        } elseif ($request->has('create_date')) {
+            $date = Carbon::parse($request->create_date)->format("Y-m-d");
+            $orders = DB::table('orders')->whereDate('created_at', $date)->get();
+        } else {
+            $order = Order::get();
+        }
+        return view('frontend.components.user.inforCartSearch', compact('orders'));
+    }
 }

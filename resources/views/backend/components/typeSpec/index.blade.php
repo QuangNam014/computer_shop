@@ -35,24 +35,11 @@
                 
                
                 <div class="table-responsive pt-3">
-                    <table class="table table-hover table-striped">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Type_id</th>
-                                <th>Product_id</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
+                    {{-- <table class="table table-hover table-striped">
+                        
                         <tbody>
                             <tr>
-                                @if (!empty($specifications))
-                                    <td>{{$specifications->id}}</td>
-                                    <td>{{$specifications->name}}</td>
-                                    <td>{{$specifications->type_id }}</td>
-                                    <td>{{$specifications->product_id }}</td>
-                                @endif
+                                
                                 {{-- <td class="parent">
                                     <a href="{{ route('type.edit', $specifications->id) }}">
                                         <button type="button" class="btn btn-success btn-icon-text">
@@ -67,10 +54,39 @@
                                         </button>
                                     </a>
                                 </td> --}}
-                            </tr>
+                            {{-- </tr>
                         
                         </tbody>
-                    </table>
+                    </table> --}}
+                        @switch($specification)
+                            @case(1)
+                            @if (!empty($spec_laptop))
+                                    @include('backend.components.typeSpec.specificate.index.spec_index_laptop', ['specLaptop' => $spec_laptop])
+                                    @break
+                            @endif
+                            @case(2)
+                            @if (!empty($spec_pc))
+                                    @include('backend.components.typeSpec.specificate.index.spec_index_pc', ['specPC' => $spec_pc])
+                                    @break
+                            @endif
+                            @case(3)
+                            @if (!empty($spec_monitor))                               
+                                    @include('backend.components.typeSpec.specificate.index.spec_index_monitor', ['specMonitor' => $spec_monitor])
+                                    @break
+                            @endif
+                            @case(4)
+                            @if (!empty($spec_keyboard))                               
+                                    @include('backend.components.typeSpec.specificate.index.spec_index_keyboard', ['specKeyBoard' => $spec_keyboard])
+                                    @break
+                            @endif
+                            @case(5)
+                            @if (!empty($spec_mouse))                           
+                                    @include('backend.components.typeSpec.specificate.index.spec_index_mouse', ['specMouse' => $spec_mouse])
+                                    @break
+                            @endif
+                            @default @break
+                        @endswitch
+                    
                 </div>
               </div>
             </div>

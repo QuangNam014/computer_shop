@@ -58,6 +58,7 @@ class CartController extends Controller
     }
 
     public function processCheckout(Request $request) {
+        // dd($request->email);
         if(session()->has('cart')) {
             $cart = session()->get('cart');
             $order = Order::create([
